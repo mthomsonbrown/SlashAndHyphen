@@ -1,5 +1,5 @@
 class UsersController < InheritedResources::Base
-skip_before_filter  :verify_authenticity_token
+skip_before_filter  :authenticate_user_from_token, :only => [:signup]
 
   # GET /users
   # GET /users.json
