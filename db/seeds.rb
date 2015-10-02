@@ -5,4 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+
+u1 = User.create(email: 'user@example.com', password: 'password')
+u2 = User.create(email: 'user2@example.com', password: 'password')
+
+b1 = u1.beers.create(name: 'Deschutes Mirror Pond', abv: 5)
+b2 = u1.beers.create(name: 'Crappy IPA', abv: 3)
+ 
+b3 = u2.beers.create(name: 'Steaming Shingle', abv: 8)
+b4 = u2.beers.create(name: 'Blackstra Stout', abv: 10)
+ 
+b3.flavors.create(name: "hops", rating: 60)
+b4.flavors.create(name: "hops", rating: 3)

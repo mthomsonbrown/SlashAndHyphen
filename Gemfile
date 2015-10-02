@@ -11,8 +11,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
-gem 'devise'
+
 gem 'activeadmin', github: 'activeadmin'
+
+gem 'active_model_serializers', '~> 0.8.3'
+gem 'rails-api'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
