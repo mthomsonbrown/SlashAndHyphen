@@ -5,17 +5,15 @@ Rails.application.routes.draw do
   resources :flavors, except: [:new, :edit]
   resources :users, except: [:new, :edit]
   ActiveAdmin.routes(self)
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
     root 'index#home'
-
-  # Example of regular route:
     get 'home' => 'index#home'
     get 'secret' => 'secretest'
     get :token, controller: 'application'
     post  '/users/signup', to: 'users#signup'
+    
+    
+    
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
