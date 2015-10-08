@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
 
-
-  resources :beers, except: [:new, :edit]
-  resources :flavors, except: [:new, :edit]
-  resources :users, except: [:new, :edit]
+  namespace :api do
+    namespace :v1 do
+      resources :beers, except: [:new, :edit]
+      resources :flavors, except: [:new, :edit]
+      resources :users, except: [:new, :edit]
+      get :token, controller: 'application'
+    end
+  end
+  
   ActiveAdmin.routes(self)
 
     root 'index#home'
     get 'home' => 'index#home'
     get 'secret' => 'secretest'
-    get :token, controller: 'application'
-    post  '/users/signup', to: 'users#signup'
+    
     
     
     

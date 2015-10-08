@@ -1,20 +1,19 @@
-class UsersController < InheritedResources::Base
-skip_before_filter  :authenticate_user_from_token#, :only => [:signup]
+class Api::V1::UsersController < InheritedResources::Base
+skip_before_filter  :authenticate_user_from_token, :only => [:create]
 
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.create! user_params
+    render json: { data: { auth_token: @user.auth_token }}
+  
+  end
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-
     render json: @users
-  end
-  
-  # POST /users/signup
-  # POST /users/signup.json
-  def signup
-      User.create! user_params
-      render :auth_token => auth_token, :success => true
-  
   end
   
   rescue_from ActiveRecord::RecordInvalid do

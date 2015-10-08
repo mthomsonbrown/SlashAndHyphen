@@ -1,14 +1,6 @@
-# SQLite version 3.x
-#   gem install sqlite3
+# Changed from default MySQL to Postgres
 #
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
-#
-#   I'M MIKE  I CHANGED THIS SHIT TO HOPEFULLY USE POSTGRES
-# if this thing eats shit, please visit:
-# http://stackoverflow.com/questions/26545746/cloud9-postgres
-#
+# If stuck see: http://stackoverflow.com/questions/26545746/cloud9-postgres
 
 default: &default
   adapter: postgresql
