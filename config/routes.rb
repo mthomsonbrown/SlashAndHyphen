@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  namespace :api do
+  namespace :api, :defaults => {:format => :json} do
     namespace :v1 do
       resources :beers, except: [:new, :edit]
       resources :flavors, except: [:new, :edit]
       resources :users, except: [:new, :edit]
-      get :token, controller: 'application'
+      post 'sign_in' => 'users#sign_in'
     end
   end
   
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     root 'index#home'
     get 'home' => 'index#home'
     get 'secret' => 'secretest'
-    
+    get :token, controller: 'application'
     
     
     
