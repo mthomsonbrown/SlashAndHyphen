@@ -17,4 +17,4 @@ b3 = u2.beers.create(name: 'Steaming Shingle', abv: 8)
 b4 = u2.beers.create(name: 'Blackstra Stout', abv: 10)
  
 b3.flavors.create(name: "hops", rating: 60)
-b4.flavors.create(name: "hops", rating: 3)
+b4.flavors.create(name: "hops", rating: 3)AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

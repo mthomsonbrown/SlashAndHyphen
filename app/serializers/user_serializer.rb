@@ -3,7 +3,4 @@ class UserSerializer < ActiveModel::Serializer
   
   has_many :beers
   
-  def say_hello
-    "Hello #{object.email}!"
-  end
 end

@@ -1,12 +1,11 @@
 class Api::V1::UsersController < InheritedResources::Base
 skip_before_filter  :authenticate_user_from_token, :only => [:create, :sign_in]
-
+#before_filter :authenticate_user!
   # POST /users
   # POST /users.json
   def create
     @user = User.create! user_params
     render json: { data: { auth_token: @user.auth_token }}
-  
   end
   
   # GET /users
