@@ -15,6 +15,7 @@ skip_before_filter  :authenticate_user_from_token, :only => [:create, :sign_in]
   end
   
   def sign_in
+    byebug
     user = User.find_by(email: user_params[:email])
       if user && user.password == user_params[:password]
         render json: { data: { auth_token: user.auth_token }}
